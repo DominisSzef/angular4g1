@@ -19,7 +19,8 @@
              [checked]="todo.isComplete"
              (change)="changeTodoStatus(todo)"
       >
-      <span class="todo-item">{{ i+1 }}. {{ todo.name }}</span>
+      <span class="todo-item" [ngStyle]="{ 'text-decoration': todo.isComplete ? 'line-through' : 'initial' }"
+      >{{ i+1 }}. {{ todo.name }}</span>
     </li>
   </ul>
   <!--  <h5 *ngIf="todos.length === 0;">Brak zadan do wykonania</h5>-->
