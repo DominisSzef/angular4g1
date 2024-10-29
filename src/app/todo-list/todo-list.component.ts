@@ -17,8 +17,12 @@ export class TodoListComponent {
   todos : ToDo[] = [];
 
   addTodo(todo:string) : void {
-    this.todos.push({name : todo,isComplete: true});
+    this.todos.push({name : todo,isComplete: false});
     console.log('Akt list todo: ',this.todos);
   }
   // defaultValue = "Test"; tu mozna dac jakis tekst
+  changeTodoStatus(todo: ToDo) {
+    todo.isComplete = !todo.isComplete;
+
+  }
 }

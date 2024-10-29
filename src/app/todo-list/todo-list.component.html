@@ -6,14 +6,21 @@
 
 <div class="mt-4">
   <h4>Lista zadan</h4>
-  <ul class="list-group todos-list" *ngIf="todos.length > 0;else noTaasks">
-    <li class="list-group-item" *ngFor="let todo of todos; index as i">
-      <input type="checkbox" class="form-check-input my-1" [checked]="todo.isComplete">
-      <span class="todo-item">{{ i+1 }}. {{ todo.name }}</span>
-    </li>
+  <ul class="list-group todos-list" *ngIf="todos.length > 0;else noTasks;">
+
+    <ng-container *ngFor="let todo of todos; index as i">
+      <li class="list-group-item" *ngIf="!todo.isComplete" >
+        <input type="checkbox" class="form-check-input my-1"
+               [checked]="todo.isComplete"
+               (change)="changeTodoStatus(todo)"
+        >
+        <span class="todo-item">{{ i+1 }}. {{ todo.name }}</span>
+      </li>
+    </ng-container>
+
   </ul>
-<!--  <h5 *ngIf="todos.length === 0;">Brak zadan do wykonania</h5>-->
-  <ng-template #noTaasks>
-    <h5>Brak zadana do wykonania</h5>
+  <!--  <h5 *ngIf="todos.length === 0;">Brak zadan do wykonania</h5>-->
+  <ng-template #noTasks>
+    <h5>Brak zadan do wykonania</h5>
   </ng-template>
 </div>
