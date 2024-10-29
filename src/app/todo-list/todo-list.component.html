@@ -1,0 +1,6 @@
+<!--<input type="text" [value]="defaultValue"> tu odbiera sie z ts component value -->
+<p class="mt-4">
+  Dodaj nowe zadanie
+</p>
+<input type="text" name="todo" class="form-control" #name>
+<button type="button" class="btn btn-primary mt-3" (click)="addTodo(name.value)">Dodaj Zadanie</button>
