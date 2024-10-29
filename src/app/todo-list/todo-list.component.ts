@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgForOf, NgIf, NgStyle} from '@angular/common';
+import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {ToDo} from '../shered/interfaces/todo.interface';
 
 
@@ -9,7 +9,8 @@ import {ToDo} from '../shered/interfaces/todo.interface';
   imports: [
     NgForOf,
     NgIf,
-    NgStyle
+    NgStyle,
+    NgClass
   ],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css'

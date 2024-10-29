@@ -19,7 +19,8 @@
              [checked]="todo.isComplete"
              (change)="changeTodoStatus(todo)"
       >
-      <span class="todo-item" [ngStyle]="{ 'text-decoration': todo.isComplete ? 'line-through' : 'initial' }"
+      <span class="todo-item"
+            [ngClass]="{'todo-complete': todo.isComplete}"
       >{{ i+1 }}. {{ todo.name }}</span>
     </li>
   </ul>
