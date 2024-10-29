@@ -2,3 +2,9 @@
   text-decoration: line-through;
   color: #cdcdcd;
 }
+ .todos-list{
+   overflow-wrap: break-word;
+ }
+ .todos-list{
+   margin-top: 10px;
+ }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {ToDo} from '../shered/interfaces/todo.interface';
+import {filter} from 'rxjs';
 
 
 @Component({
@@ -37,5 +38,13 @@ export class TodoListComponent {
 
   clearErrorMessage() {
     this.ErrorMessage = '';
+  }
+
+  RemoveTodo(i : number ) {
+    this.todos.splice(i , 1)
+  }
+
+  removeAllComplete() {
+    this.todos = this.todos.filter(t => !t.isComplete);
   }
 }
