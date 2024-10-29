@@ -1,23 +1,26 @@
 <p class="mt-4">
   Dodaj nowe zadanie
 </p>
-<input type="text" name="todo" class="form-control" #name>
+<input type="text" name="todo" class="form-control" #name (keydown)="clearErrorMessage()">
 <button type="button" class="btn btn-primary mt-3" (click)="addTodo(name.value)">Dodaj zadanie</button>
+
+<div class="alert alert-warning alert-dismissible fade show mt-2" role="alert" *ngIf="ErrorMessage"
+>
+  {{ ErrorMessage }}
+
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="clearErrorMessage()"></button>
+</div>
 
 <div class="mt-4">
   <h4>Lista zadan</h4>
   <ul class="list-group todos-list" *ngIf="todos.length > 0;else noTasks;">
-
-    <ng-container *ngFor="let todo of todos; index as i">
-      <li class="list-group-item" *ngIf="!todo.isComplete" >
-        <input type="checkbox" class="form-check-input my-1"
-               [checked]="todo.isComplete"
-               (change)="changeTodoStatus(todo)"
-        >
-        <span class="todo-item">{{ i+1 }}. {{ todo.name }}</span>
-      </li>
-    </ng-container>
-
+    <li class="list-group-item" *ngFor="let todo of todos; index as i">
+      <input type="checkbox" class="form-check-input my-1"
+             [checked]="todo.isComplete"
+             (change)="changeTodoStatus(todo)"
+      >
+      <span class="todo-item">{{ i+1 }}. {{ todo.name }}</span>
+    </li>
   </ul>
   <!--  <h5 *ngIf="todos.length === 0;">Brak zadan do wykonania</h5>-->
   <ng-template #noTasks>
