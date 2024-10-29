@@ -1,6 +1,15 @@
-<!--<input type="text" [value]="defaultValue"> tu odbiera sie z ts component value -->
 <p class="mt-4">
   Dodaj nowe zadanie
 </p>
 <input type="text" name="todo" class="form-control" #name>
-<button type="button" class="btn btn-primary mt-3" (click)="addTodo(name.value)">Dodaj Zadanie</button>
+<button type="button" class="btn btn-primary mt-3" (click)="addTodo(name.value)">Dodaj zadanie</button>
+
+<div class="mt-4">
+  <h4>Lista zadan</h4>
+  <ul class="list-group todos-list">
+    <li class="list-group-item" *ngFor="let todo of todos; index as i">
+      <input type="checkbox" class="form-check-input my-1" [checked]="todo.isComplete">
+      <span class="todo-item">{{ i+1 }}. {{ todo }}</span>
+    </li>
+  </ul>
+</div>
